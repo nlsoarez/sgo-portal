@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal SGO - Incidentes FIBRA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-broadcast-tower"></i>
+                <h1>Portal SGO - Incidentes FIBRA</h1>
+            </div>
+            <div class="status-bar">
+                <div class="status-item">
+                    <span class="status-label">Última atualização:</span>
+                    <span id="ultimaAtualizacao" class="status-value">--:--</span>
+                </div>
+                <button id="btnAtualizar" class="btn-atualizar">
+                    <i class="fas fa-sync-alt"></i> Atualizar Agora
+                </button>
+            </div>
+        </header>
+
+        <div class="dashboard">
+            <div class="cards-container">
+                <div class="card card-total">
+                    <div class="card-icon">
+                        <i class="fas fa-list-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Total Incidentes</h3>
+                        <p id="totalIncidentes" class="card-value">0</p>
+                    </div>
+                </div>
+                
+                <div class="card card-novos">
+                    <div class="card-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Novos Casos</h3>
+                        <p id="novosIncidentes" class="card-value">0</p>
+                    </div>
+                </div>
+                
+                <div class="card card-gpon">
+                    <div class="card-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>GPON</h3>
+                        <p id="totalGPON" class="card-value">0</p>
+                    </div>
+                </div>
+                
+                <div class="card card-hfc">
+                    <div class="card-icon">
+                        <i class="fas fa-satellite-dish"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>HFC</h3>
+                        <p id="totalHFC" class="card-value">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="gpon">
+                    <i class="fas fa-bolt"></i> GPON <span id="badgeGpon" class="badge">0</span>
+                </button>
+                <button class="tab-btn" data-tab="hfc">
+                    <i class="fas fa-satellite-dish"></i> HFC <span id="badgeHfc" class="badge">0</span>
+                </button>
+            </div>
+
+            <div class="tab-content active" id="tab-gpon">
+                <div class="table-container">
+                    <table class="incident-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tipo</th>
+                                <th>Subcluster</th>
+                                <th>Topologia</th>
+                                <th>Data Entrada</th>
+                                <th>Equipe</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaGpon">
+                            <tr>
+                                <td colspan="7" class="empty-message">
+                                    <i class="fas fa-spinner fa-spin"></i> Carregando incidentes GPON...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-hfc">
+                <div class="table-container">
+                    <table class="incident-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tipo</th>
+                                <th>Subcluster</th>
+                                <th>Topologia</th>
+                                <th>Data Entrada</th>
+                                <th>Equipe</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaHfc">
+                            <tr>
+                                <td colspan="7" class="empty-message">
+                                    <i class="fas fa-spinner fa-spin"></i> Carregando incidentes HFC...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Portal SGO - Processamento de Incidentes FIBRA | Desenvolvido com DeepSeek</p>
+            <p class="footer-info">
+                <i class="fas fa-info-circle"></i> 
+                Mostrando apenas incidentes da equipe FIBRA com topologia GPON ou HFC
+            </p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
